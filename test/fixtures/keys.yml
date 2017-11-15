@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  initial_value: MyString
+  timestamp: 2017-11-14 11:39:22
+
+two:
+  key: MyString
+  initial_value: MyString
+  timestamp: 2017-11-14 11:39:22
