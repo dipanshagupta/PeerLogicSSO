@@ -27,8 +27,30 @@ class ClientsController < ApplicationController
   def show
   end
 
-  def requestKey(client)
-    puts client.id
+  def requestKey
+    client = Client.find(params[:id])
+    client.requested = true
+    if client.save
+    end
+    redirect_to clients_path
+  end
+
+  def generateKey
+    client = Client.find(params[:id])
+    client.key = SecureRandom.base64(32)
+    client.requested = false
+    client.hasKey = true
+    client.save
+    redirect_to clients_path
+  end
+
+  def revokeKey
+    client = Client.find(params[:id])
+    client.key = ""
+    client.requested = false
+    client.hasKey = false
+    client.save
+    redirect_to clients_path
   end
 
   # GET /clients/new

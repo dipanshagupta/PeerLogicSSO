@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/clients/requestKey', to:'clients#requestKey'
+  get '/clients/generateKey', to:'clients#generateKey'
+  get '/clients/revokeKey', to:'clients#revokeKey'
+
 
 	resources :users
 	resources :apis

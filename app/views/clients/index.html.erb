@@ -21,15 +21,18 @@
 
         <% if isAdmin? %>
             <% if client.requested %>
-            <td> <%= link_to 'Approve', edit_client_path(client) %> </td>
+            <td> <%= link_to 'Approve', clients_generateKey_path(:id => client.id) %> </td>
             <% end %>
         <% else %>
 
-            <% if !client.hasKey %>
-
-                <td> <%= link_to 'Request Key', clients_requestKey_path(client) %> </td>
+            <% if !client.hasKey  %>
+                <% if client.requested %>
+                      <td> Requested </td>
+                    <% else %>
+                      <td> <%= link_to 'Request Key', clients_requestKey_path(:id => client.id) %> </td>
+                <% end %>
             <% else %>
-                <td> <%= link_to 'Revoke', edit_client_path(client) %> </td>
+                <td> <%= link_to 'Revoke', clients_revokeKey_path(:id => client.id) %> </td>
             <% end %>
             <td><%= link_to 'Edit', edit_client_path(client) %></td>
             <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
