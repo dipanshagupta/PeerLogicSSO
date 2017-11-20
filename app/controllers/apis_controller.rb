@@ -69,6 +69,6 @@ class ApisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def api_params
-      params.fetch(:api, {})
+      params.require(:api).permit(:name)
     end
 end
