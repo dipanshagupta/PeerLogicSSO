@@ -44,6 +44,11 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+  def enableApis
+    client = Client.find(params[:id])
+    @apis = Api.all
+  end
+
   def revokeKey
     client = Client.find(params[:id])
     client.key = ""
