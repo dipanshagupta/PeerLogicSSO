@@ -1,0 +1,18 @@
+<h1>Enabling APIs</h1>
+
+<%= form_with do |form| %>
+
+
+    <ul>
+      <% @apis.each do |api| %>
+
+            <%= check_box_tag 'api_ids[]', api.id -%>
+            <%= h api.name -%>
+      <br>
+      <% end %>
+    </ul>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

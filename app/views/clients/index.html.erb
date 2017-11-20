@@ -33,7 +33,7 @@
                 <% end %>
             <% else %>
                 <td> <%= link_to 'Revoke', clients_revokeKey_path(:id => client.id) %> </td>
-                <td> <%= link_to 'Enable APIs', clients_enableApis_path(:id => client.id) %> </td>
+                <td> <%= link_to 'Enable APIs', clients_enableApisForm_path(:id => client.id) %> </td>
             <% end %>
             <td><%= link_to 'Edit', edit_client_path(client) %></td>
             <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>

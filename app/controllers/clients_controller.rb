@@ -44,8 +44,13 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+  def enableApisForm
+    @client = Client.find(params[:id])
+    @apis = Api.all
+  end
+
   def enableApis
-    client = Client.find(params[:id])
+    @client = Client.find(params[:id])
     @apis = Api.all
   end
 

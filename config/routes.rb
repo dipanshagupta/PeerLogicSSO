@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/clients/requestKey', to:'clients#requestKey'
   get '/clients/generateKey', to:'clients#generateKey'
   get '/clients/revokeKey', to:'clients#revokeKey'
-  get '/clients/enableApis', to:'clients#enableApis'
+  get '/clients/enableApisForm', to:'clients#enableApisForm'
+
+  post '/clients/enableApisForm', to:'clients#enableApis'
 
 	resources :users
 	resources :apis
