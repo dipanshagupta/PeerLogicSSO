@@ -2,11 +2,15 @@
 
 <%= form_with do |form| %>
 
+    <%= hidden_field_tag "client_id", @client.id %>
 
     <ul>
       <% @apis.each do |api| %>
-
-            <%= check_box_tag 'api_ids[]', api.id -%>
+            <% if @clientAPIs.include? api %>
+              <%= check_box_tag 'api_ids[]', api.id, true -%>
+              <% else %>
+              <%= check_box_tag 'api_ids[]', api.id, false -%>
+              <% end %>
             <%= h api.name -%>
       <br>
       <% end %>

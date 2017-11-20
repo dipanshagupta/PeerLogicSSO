@@ -46,12 +46,15 @@ class ClientsController < ApplicationController
 
   def enableApisForm
     @client = Client.find(params[:id])
+    @clientAPIs = @client.apis
     @apis = Api.all
   end
 
   def enableApis
-    @client = Client.find(params[:id])
-    @apis = Api.all
+    @client = Client.find(params[:client_id])
+    @client.apis = Api.where(id: params[:api_ids])
+    @client.save
+    redirect_to clients_path
   end
 
   def revokeKey
