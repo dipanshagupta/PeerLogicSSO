@@ -17,7 +17,7 @@ class ApisControllerTest < ActionDispatch::IntegrationTest
 
   test "should create api" do
     assert_difference('Api.count') do
-      post apis_url, params: { api: {  } }
+      post apis_url, params: { api: { name: @api.name } }
     end
 
     assert_redirected_to api_url(Api.last)
@@ -34,7 +34,7 @@ class ApisControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update api" do
-    patch api_url(@api), params: { api: {  } }
+    patch api_url(@api), params: { api: { name: @api.name } }
     assert_redirected_to api_url(@api)
   end
 

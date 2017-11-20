@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
+
+  include ApplicationHelper
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  before_action :checkLogIn
+
+  def checkLogIn
+    if !isLoggedIn?
+      redirect_to login_path
+    end
+  end
 
   # GET /users
   # GET /users.json
@@ -69,6 +80,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:username, :password, :name, :email, :role)
     end
 end
