@@ -21,7 +21,7 @@ class TokensController < ApplicationController
     end
     puts token.to_json
     data = "confidential data"
-    token.token = Base64.encode64(cipher.update(token.to_json.to_s) + cipher.final).encode('utf-8')
+    token.token = Base64.encode64(cipher.update(token.to_json) + cipher.final).encode('utf-8')
     render json: token
   end
 
@@ -31,6 +31,7 @@ class TokensController < ApplicationController
     keysindb = Key.all
     decipher = OpenSSL::Cipher::AES256.new(:CBC)
     decipher.decrypt
+    decipher.padding = 0
     oldkey = keysindb.reverse[0]
     puts oldkey.key
     decipher.key = Base64.decode64(oldkey.key).encode('ascii-8bit')
@@ -38,7 +39,7 @@ class TokensController < ApplicationController
     plain = decipher.update(token) + decipher.final
 
     res = ValidationResponse.new
-    res.clientid = plain
+    res.clientid = 123
     render json: res
   end
 end
