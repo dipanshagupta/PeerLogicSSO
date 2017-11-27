@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/clients/revokeKey', to:'clients#revokeKey'
   get '/clients/enableApisForm', to:'clients#enableApisForm'
 
-  # post '/clients/enableApisForm', to:'clients#enableApis'
+  post '/clients/enableApisForm', to:'clients#enableApis'
   get '/token/get', to: 'tokens#getToken'
   post '/token/validate', to: 'tokens#validateToken'
 
