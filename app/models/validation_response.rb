@@ -1,3 +1,3 @@
 class ValidationResponse
-  attr_accessor :clientid
+  attr_accessor :clientname, :success
 end
