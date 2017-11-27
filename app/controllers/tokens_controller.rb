@@ -5,7 +5,8 @@ class TokensController < ApplicationController
     tokenjson = TokenJson.new
     tokenjson.clientkey = params["clientkey"]
     tokenjson.clientid = Client.where("key = ?", tokenjson.clientkey).first.id
-
+    puts tokenjson.clientkey
+    puts tokenjson.clientid
     cipher = OpenSSL::Cipher::AES.new(128, :CBC)
     cipher.encrypt
     keysindb = Key.all
@@ -36,7 +37,7 @@ class TokensController < ApplicationController
     decipher.key = Base64.decode64(oldkey.key)
     decipher.iv = Base64.decode64(oldkey.initial_value)
     plain = decipher.update(token) + decipher.final
-    tokenjson = JSON.parse(plain, object_class: TokenJson)
+    tokenjson = JSON.parse(plain, object_class: OpenStruct)
     client = Client.find(tokenjson.clientid)
     apis = client.apis
     res = ValidationResponse.new
