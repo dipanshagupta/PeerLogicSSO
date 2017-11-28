@@ -11,13 +11,16 @@
     </div>
   <% end %>
 
-
-  <div class="field">
+<div class="editWrapper">
+  <div class="editContainer">
+    <div class="editField">
     <%= form.label :name %>
     <%= form.text_field :name, id: :client_name %>
-  </div>
+    </div>
 
-  <div class="actions">
+  <div class="editField">
     <%= form.submit %>
   </div>
+  </div>
+</div>
 <% end %>

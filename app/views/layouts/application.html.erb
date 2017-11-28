@@ -1,84 +1,38 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tag %>
-
-  <style>
-    ul.menu {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-    }
-
-    li.menu {
-      float: left;
-    }
-
-    li.menur {
-      float: right;
-    }
-
-    li.menu a {
-      display: inline-block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-
-
-    li.menu a:hover {
-      background-color: #111;
-    }
-  </style>
-
 </head>
 
 <% if logged_in? %>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <nav>
-
-          <ul class="menu">
-
-            <li class="menu">
+      <div class="loginHeading">
+          <ul class="navBar">
+            <li class="navItem">
               <%= link_to "Apps", clients_path, method: :get %>
             </li>
-            <li class="menu">
+            <li class="navItem">
               <%= link_to 'Edit Profile', edit_user_path(@current_user) %>
             </li>
 
 
             <% if isAdmin? %>
-                <li class="menu">
+                <li class="navItem">
                   <%= link_to 'All users', users_path %>
                 </li>
 
-                <li class="menu">
+                <li class="navItem">
                   <%= link_to 'APIs', apis_path %>
                 </li>
 
             <% end %>
 
-            <li class="menu">
-              <%= link_to "Log out", logout_path, method: :delete %>
+            <li class="navItem">
+              <%= button_to "Log out", logout_path, method: :delete %>
             </li>
-
-
           </ul>
-
-        </nav>
       </div>
       <br>
-
-    </header>
     </header>
 <% end %>
 

@@ -10,28 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="editWrapper">
+  <div class="editContainer">
+  <div class="editField">
     <%= form.label :username %>
     <%= form.text_field :username, id: :user_username %>
   </div>
 
-  <div class="field">
+  <div class="editField">
     <%= form.label :password %>
     <%= form.text_field :password, id: :user_password %>
   </div>
 
-  <div class="field">
+  <div class="editField">
     <%= form.label :name %>
     <%= form.text_field :name, id: :user_name %>
   </div>
 
-  <div class="field">
+  <div class="editField">
     <%= form.label :email %>
     <%= form.text_field :email, id: :user_email %>
   </div>
 
-  <div class="actions">
+  <div class="editField">
     <%= form.submit %>
   </div>
+  </div>
+</div>
 <% end %>

@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
-
+<div class="editWrapper">
+  <div class="editContainer">
+    <p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
   <%= @api.name %>
 </p>
-
-<%= link_to 'Edit', edit_api_path(@api) %> |
+    <div class="editField">
+<%= link_to 'Edit', edit_api_path(@api) %>
+    </div>
+    <div class="editField">
 <%= link_to 'Back', apis_path %>
+    </div>
+  </div></div>

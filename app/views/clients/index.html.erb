@@ -1,51 +1,51 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Your Apps</h1>
-
-<table>
+<div class="contentContainer">
+  <h1 class="heading">Your Apps</h1>
+  <p id="notice" class="notice"><%= notice %></p>
+  <span class="newLink">
+    <% if !isAdmin? %>
+    <%= link_to 'New App', new_client_path %>
+    <% end %>
+  </span>
+</div>
+<table id="tableHeader">
   <thead>
     <tr>
-      <th>Key</th>
-      <th>Name</th>
-
-      <th colspan="3"></th>
+      <th class="clientRow">Key</th>
+      <th class="clientRow">Name</th>
+      <th class="actionRow">Pending Approval</th>
     </tr>
   </thead>
+</table>
 
+<table id="tableContent">
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.key %></td>
-        <td><%= client.name %></td>
+        <td class="clientRow"><%= client.key %></td>
+        <td class="clientRow"><%= client.name %></td>
 
 
         <% if isAdmin? %>
             <% if client.requested %>
-            <td> <%= link_to 'Approve', clients_generateKey_path(:id => client.id) %> </td>
+            <td class="actionRow"> <%= link_to 'Approve', clients_generateKey_path(:id => client.id) %> </td>
             <% end %>
         <% else %>
-
+            <td class="actionRow">
             <% if !client.hasKey  %>
                 <% if client.requested %>
-                      <td> Requested </td>
+                      Requested
                     <% else %>
-                      <td> <%= link_to 'Request Key', clients_requestKey_path(:id => client.id) %> </td>
+                      <%= link_to 'Request Key', clients_requestKey_path(:id => client.id) %>
                 <% end %>
             <% else %>
-                <td> <%= link_to 'Revoke', clients_revokeKey_path(:id => client.id) %> </td>
-                <td> <%= link_to 'Enable APIs', clients_enableApisForm_path(:id => client.id) %> </td>
+                 <%= link_to 'Revoke', clients_revokeKey_path(:id => client.id) %>
+                 <%= link_to 'Enable APIs', clients_enableApisForm_path(:id => client.id) %>
             <% end %>
-            <td><%= link_to 'Edit', edit_client_path(client) %></td>
-            <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Edit', edit_client_path(client) %>
+            <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
         <% end %>
-
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<% if !isAdmin? %>
-<%= link_to 'New App', new_client_path %>
-<% end %>

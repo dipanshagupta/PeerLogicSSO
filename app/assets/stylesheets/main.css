@@ -1,0 +1,202 @@
+ul.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+
+li.navItem input[type="submit"] {
+    border:none;
+    position: relative;
+    top: 10px;
+    background: transparent;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+li.navItem a {
+    display: inline-block;
+    padding: 14px 16px;
+    color: white;
+    text-decoration: none;
+}
+
+li.navItem a:hover, li.navItem input[type="submit"]:hover, li.navItem a:focus, li.navItem input[type="submit"]:focus {
+    background-color: #111;
+}
+
+.loginHeading {
+    text-align: center;
+    position: fixed;
+    width:97%;
+    background: radial-gradient(#000000 30%, #434343 70%);
+    height: 50px;
+    padding: 10px;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.16);
+}
+
+.loginHeading h1 {
+    color: white;
+    margin: 5px;
+}
+
+.loginContainer, .editContainer {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.loginWrapper {
+    width: 100%;
+    padding: 100px 0px;
+}
+
+.editWrapper {
+    width: 100%;
+    position: relative;
+    top: 50px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background: #fff;
+    color: #555;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus {
+    background: #555;
+    color: #fff;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.loginEmail, .loginPassword, .loginButton {
+    width : 100%;
+    margin: 40px 0px;
+}
+
+.loginButton {
+    padding: 10px;
+}
+
+.editField {
+    width: 100%;
+    margin: 30px 0px;
+}
+
+.navBar {
+    display: flex;
+}
+
+.navItem {
+    flex-grow: 1;
+}
+
+#tableContent, #tableHeader {
+    border-collapse: collapse;
+}
+
+#tableHeader {
+    position: fixed;
+    top: 115px;
+    width: 99%;
+}
+
+.loginHeading, #tableHeader {
+    z-index: 900;
+}
+
+#tableContent {
+    position: relative;
+    z-index: 700;
+    top: 150px;
+    width: 100%;
+}
+
+#tableContent tr, #tableContent th, #tableHeader tr, #tableHeader th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    height: 50px;
+}
+
+#tableContent tr:nth-child(even){background-color: #f2f2f2;}
+
+#tableContent tr:hover {background-color: #ddd;}
+
+#tableHeader th {
+    text-align: left;
+    background-color: #555;
+    color: white;
+}
+
+#tableContent a {
+    font: bold 11px Arial;
+    background: #555;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+#tableContent a:hover {
+    color: #555;
+    background: #fff;
+    border: 2px solid #fff;
+}
+
+#tableContent .row, #tableHeader .row, #tableContent .clientRow, #tableHeader .clientRow {
+    width: 20%;
+}
+
+#tableContent .actionRow, #tableHeader .actionRow {
+    width: 58%;
+}
+
+#tableContent .bigActionRow, #tableHeader bigActionRow {
+    width: 78%;
+}
+
+.contentContainer .heading {
+    margin: 0px;
+    flex-grow: 1;
+}
+
+.contentContainer .notice {
+    margin-left: 30px;
+    flex-grow: 3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:red;
+}
+
+.contentContainer .newLink {
+    flex-grow: 1;
+    float: right;
+    position: relative;
+    top: 10px;
+}
+
+.contentContainer {
+    position: fixed;
+    z-index: 900;
+    top: 75px;
+    height: 50px;
+    display: flex;
+    background: #fff;
+    width: 100%;
+}
