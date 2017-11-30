@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<br>
+<h1>Keys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key value</th>
+      <th>Ttl</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keys.each do |key| %>
+      <tr>
+        <td><%= key.key %></td>
+        <td><%= key.ttl %></td>
+        <td><%= link_to 'Show', key %></td>
+        <td><%= link_to 'Edit TTL', edit_key_path(key) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Key', new_key_path %>

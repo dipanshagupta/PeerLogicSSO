@@ -17,7 +17,7 @@ class KeysControllerTest < ActionDispatch::IntegrationTest
 
   test "should create key" do
     assert_difference('Key.count') do
-      post keys_url, params: { key: {  } }
+      post keys_url, params: { key: { keyinitial_value: @key.keyinitial_value, ttl: @key.ttl } }
     end
 
     assert_redirected_to key_url(Key.last)
@@ -34,7 +34,7 @@ class KeysControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update key" do
-    patch key_url(@key), params: { key: {  } }
+    patch key_url(@key), params: { key: { keyinitial_value: @key.keyinitial_value, ttl: @key.ttl } }
     assert_redirected_to key_url(@key)
   end
 

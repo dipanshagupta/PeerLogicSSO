@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :apis
+  resources :keys
 	resources :clients, :except => :show
 
 
