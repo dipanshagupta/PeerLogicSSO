@@ -50,14 +50,22 @@ class TokensController < ApplicationController
       decipher.decrypt
       keysindb = Key.all
       oldkey = keysindb.reverse[0]
+      flag = 0
       if(oldkey.nil? || Base64.decode64(oldkey.key).nil? || Base64.decode64(oldkey.initial_value).nil?)
         res.status = 500
-        res.message = "SSO_ENCRYPTION_KEY_ERROR"
+        res.message = "SSO_ENCRYPTION_KEY_NOT_FOUND"
       else
       decipher.key = Base64.decode64(oldkey.key)
       decipher.iv = Base64.decode64(oldkey.initial_value)
-      plain = decipher.update(token) + decipher.final
-      tokenjson = JSON.parse(plain, object_class: OpenStruct)
+      begin
+        plain = decipher.update(token) + decipher.final
+        tokenjson = JSON.parse(plain, object_class: OpenStruct)
+      rescue
+        res.status = 500
+        res.message = "SSO_DECRYPTION_ERROR"
+        flag = 1
+      end
+      if flag == 0
       res.status = 401
       if((Time.now.to_f * 1000).to_i > tokenjson.timestamp + oldkey.ttl)
         res.message = "TOKEN_EXPIRED"
@@ -80,6 +88,7 @@ class TokensController < ApplicationController
           res.clientname = client.name
 
         end
+      end
       end
       end
     end
