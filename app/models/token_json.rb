@@ -1,3 +1,3 @@
 class TokenJson
-  attr_accessor :clientkey, :clientid
+  attr_accessor :clientkey, :clientid, :timestamp
 end
