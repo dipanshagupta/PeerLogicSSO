@@ -10,13 +10,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+    <div class="editWrapper">
+      <div class="editContainer">
+        <div class="editField">
     <%= form.label :ttl %>
     <%= form.text_field :ttl, id: :key_ttl %>
   </div>
 
-  <div class="actions">
+  <div class="editField">
     <%= form.submit %>
-  </div>
+  </div></div></div>
 <% end %>

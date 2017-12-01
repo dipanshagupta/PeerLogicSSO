@@ -105,44 +105,44 @@ input:-webkit-autofill {
     flex-grow: 1;
 }
 
-#tableContent, #tableHeader {
+.tableContent, .tableHeader {
     border-collapse: collapse;
 }
 
-#tableHeader {
+.tableHeader {
     position: fixed;
     top: 115px;
     width: 99%;
 }
 
-.loginHeading, #tableHeader {
+.loginHeading, .tableHeader {
     z-index: 900;
 }
 
-#tableContent {
+.tableContent {
     position: relative;
     z-index: 700;
     top: 150px;
     width: 100%;
 }
 
-#tableContent tr, #tableContent th, #tableHeader tr, #tableHeader th {
+.tableContent tr, .tableContent th, .tableHeader tr, .tableHeader th {
     border: 1px solid #ddd;
     padding: 5px;
     height: 50px;
 }
 
-#tableContent tr:nth-child(even){background-color: #f2f2f2;}
+.tableContent tr:nth-child(even){background-color: #f2f2f2;}
 
-#tableContent tr:hover {background-color: #ddd;}
+.tableContent tr:hover {background-color: #ddd;}
 
-#tableHeader th {
+.tableHeader th {
     text-align: left;
     background-color: #555;
     color: white;
 }
 
-#tableContent a {
+.tableContent a {
     font: bold 11px Arial;
     background: #555;
     border: 2px solid #555;
@@ -153,21 +153,21 @@ input:-webkit-autofill {
     text-decoration: none;
 }
 
-#tableContent a:hover {
+.tableContent a:hover {
     color: #555;
     background: #fff;
     border: 2px solid #fff;
 }
 
-#tableContent .row, #tableHeader .row, #tableContent .clientRow, #tableHeader .clientRow {
+.tableContent .row, .tableHeader .row, .tableContent .clientRow, .tableHeader .clientRow {
     width: 20%;
 }
 
-#tableContent .actionRow, #tableHeader .actionRow {
+.tableContent .actionRow, #tableHeader .actionRow {
     width: 58%;
 }
 
-#tableContent .bigActionRow, #tableHeader bigActionRow {
+.tableContent .bigActionRow, #tableHeader bigActionRow {
     width: 78%;
 }
 
@@ -185,10 +185,22 @@ input:-webkit-autofill {
 }
 
 .contentContainer .newLink {
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     flex-grow: 1;
     float: right;
     position: relative;
     top: 10px;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 80px;
+    right: 80px;
+}
+
+.newLink a {
+    color: white;
 }
 
 .contentContainer {
@@ -199,4 +211,25 @@ input:-webkit-autofill {
     display: flex;
     background: #fff;
     width: 100%;
+}
+
+.navLinks {
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+
+.navLinks a {
+    width: 50%;
+    background: #fff;
+    color: #555;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+.navLinks a:hover, .navLinks a:focus {
+    background: #555;
+    color: #fff;
 }
