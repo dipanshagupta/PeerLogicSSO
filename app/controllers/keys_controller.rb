@@ -5,6 +5,9 @@ class KeysController < ApplicationController
   # GET /keys.json
   def index
     @keys = Key.all
+    @keys.each do |key|
+      key.ttl = key.ttl/(1000*60*60)
+    end
   end
 
   # GET /keys/1
@@ -70,10 +73,13 @@ class KeysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_key
       @key = Key.find(params[:id])
+      @key.ttl = @key.ttl/(1000*60*60)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def key_params
+
       params.require(:key).permit(:ttl)
+
     end
 end
