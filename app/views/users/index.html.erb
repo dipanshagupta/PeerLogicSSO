@@ -18,11 +18,12 @@
     <% @users.each do |user| %>
       <% if user.role != "admin" %>
       <tr>
+        
         <td class="row"><%= user.username %></td>
         <td class="row"><%= user.name %></td>
         <td class="row"><%= user.email %></td>
         <td class="row">
-          
+
           <%= link_to 'Show', user %>
           <%= link_to 'Edit', edit_user_path(user) %>
           <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
