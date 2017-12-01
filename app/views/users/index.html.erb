@@ -3,7 +3,7 @@
   <p id="notice" class="notice"><%= notice %></p>
 <span class="newLink"><%= link_to 'New User', new_user_path %></span>
 </div>
-  <table id="tableHeader">
+  <table class="tableHeader">
   <thead>
     <tr>
       <th class="row">Username</th>
@@ -14,7 +14,7 @@
     </tr>
   </thead>
 </table>
-<table id="tableContent">
+<table class="tableContent">
   <tbody>
     <% @users.each do |user| %>
       <% if user.role != "admin" %>

@@ -1,13 +1,13 @@
 <div class="contentContainer">
   <h1 class="heading">Your Apps</h1>
   <p id="notice" class="notice"><%= notice %></p>
-  <span class="newLink">
     <% if !isAdmin? %>
-    <%= link_to 'New App', new_client_path %>
-    <% end %>
-  </span>
+      <span class="newLink">
+        <%= link_to 'New App', new_client_path %>
+      </span>
+  <% end %>
 </div>
-<table id="tableHeader">
+<table class="tableHeader">
   <thead>
     <tr>
       <th class="clientRow">Key</th>
@@ -17,7 +17,7 @@
   </thead>
 </table>
 
-<table id="tableContent">
+<table class="tableContent">
   <tbody>
     <% @clients.each do |client| %>
       <tr>
