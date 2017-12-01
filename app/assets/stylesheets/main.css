@@ -107,6 +107,7 @@ input:-webkit-autofill {
 
 .tableContent, .tableHeader {
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .tableHeader {
@@ -124,6 +125,12 @@ input:-webkit-autofill {
     z-index: 700;
     top: 150px;
     width: 100%;
+}
+
+.tableContent td, .tableContent th {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    border: 1px solid darkgrey;
 }
 
 .tableContent tr, .tableContent th, .tableHeader tr, .tableHeader th {
@@ -171,6 +178,11 @@ input:-webkit-autofill {
     width: 78%;
 }
 
+.row, .clientRow, .actionRow, .bigActionRow {
+    padding: 10px;
+    vertical-align: middle;
+}
+
 .contentContainer .heading {
     margin: 0px;
     flex-grow: 1;
@@ -184,7 +196,7 @@ input:-webkit-autofill {
     color:red;
 }
 
-.contentContainer .newLink {
+.newLink {
     background: #0f0c29;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -200,7 +212,11 @@ input:-webkit-autofill {
 }
 
 .newLink a {
-    color: white;
+    color: #fff;
+}
+
+.newLink:hover, .newLink:focus {
+    background: green;
 }
 
 .contentContainer {
