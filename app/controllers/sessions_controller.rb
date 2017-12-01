@@ -10,6 +10,13 @@ class SessionsController < ApplicationController
     end
     
     def create
+        print params
+        if params[:session] == nil
+            user = User.from_omniauth(request.env["omniauth.auth"])
+            session[:user_id] = user.id
+            redirect_to clients_path
+        else
+
         user = User.find_by(email: params[:session][:email].downcase)
         if user && user.password == (params[:session][:password])
             flash[:danger] = ''
@@ -20,6 +27,7 @@ class SessionsController < ApplicationController
             # Create an error message.
             flash[:danger] = 'Invalid email/password combination' # Not quite right!
             render 'new'
+        end
         end
     end
     
