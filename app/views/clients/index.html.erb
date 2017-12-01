@@ -24,13 +24,12 @@
         <td class="clientRow"><%= client.key %></td>
         <td class="clientRow"><%= client.name %></td>
 
-
+        <td class="actionRow">
         <% if isAdmin? %>
             <% if client.requested %>
-            <td class="actionRow"> <%= link_to 'Approve', clients_generateKey_path(:id => client.id) %> </td>
+            <%= link_to 'Approve', clients_generateKey_path(:id => client.id) %>
             <% end %>
         <% else %>
-            <td class="actionRow">
             <% if !client.hasKey  %>
                 <% if client.requested %>
                       Requested
@@ -43,8 +42,8 @@
             <% end %>
             <%= link_to 'Edit', edit_client_path(client) %>
             <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
         <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
