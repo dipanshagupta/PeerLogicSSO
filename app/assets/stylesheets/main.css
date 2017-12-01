@@ -130,6 +130,7 @@ input:-webkit-autofill {
 .tableContent td, .tableContent th {
     -ms-word-wrap: break-word;
     word-wrap: break-word;
+    border: 1px solid darkgrey;
 }
 
 .tableContent tr, .tableContent th, .tableHeader tr, .tableHeader th {
